@@ -1,5 +1,62 @@
-{% extends 'base.html' %}
-{% block main %}
-Home
-{{ book }}
-{% endblock main %}
+{% extends 'base.html' %} {% block main %}
+<div class="head pt-4">
+    <div id="home-link" class="container">
+        <h2 class="shadow-lg border border border-secondary rounded home-link-header text-align-center bg-secondary text-white">Welcome to Base Camp Book Store!</h2>
+        <h3 class="b-o-d pt-5">
+            <i id="book-mark-icon" class="fas fa-bookmark"></i> Book of the Day
+            <i id="book-mark-icon" class="fas fa-bookmark"></i>
+        </h3>
+    </div>
+    <div class="image-box d-flex">
+        <img class="b-o-d-image" src="{{book.cover_image.url}}">
+        <div class="font-weight-bold book-details">
+            <p>
+                <span class="home-book-attribute">Title: </span>
+                <a href="{% url 'book-detail' book.id %}">
+                    <span class="home-book-info">{{book.title}}</span>
+                </a>
+            </p>
+            <p>
+                <span class="home-book-attribute">Authors: </span>
+                <span class="home-book-info">{{book.authors.all|join:", "}}</span>
+            </p>
+            <p>
+                <span class="home-book-attribute">Price: </span>
+                <span class="home-book-info"> ${{book.price}}</span>
+            </p>
+            <p>
+                <span class="home-book-attribute">Description: </span>
+                <span class="home-book-info">{{book.description}}</span>
+            </p>
+        </div>
+    </div>
+    <footer id="book-store-footer">
+        <div class="footer">
+            <h6 id="footer-header">
+                <i id="footer-phone-icon" class="fas fa-mobile"></i>Follow us on Social Media</h6>
+
+            <ul id="social-media-list">
+                <li class="sc-list">
+                    <p class="footer-par-insta">
+                        <i id="footer-icons" class="fab fa-instagram"></i>
+                        <a href="https://www.instagram.com/basecampcoding/" target="_blank">Instagram</a>
+                    </p>
+                </li>
+                <li class="sc-list">
+                    <p class="footer-par-face">
+                        <i id="footer-icons" class="fab fa-facebook"></i>
+                        <a href="https://www.facebook.com/basecampcodingacademy" target="_blank">Facebook</a>
+                    </p>
+                </li>
+                <li class="sc-list">
+                    <p class="footer-par-snap">
+                        <i id="footer-icons" class="fab fa-twitter"></i>
+                        <a href="https://twitter.com/basecampcoding" target="_blank">Twitter</a>
+                    </p>
+                </li>
+            </ul>
+        </div>
+    </footer>
+</div>
+
+<!-- {{ book }} {% endblock main %} -->

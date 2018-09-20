@@ -1,4 +1,27 @@
-{% extends 'base.html' %}
-{% block main %}
-{{ book }}
+{% extends 'base.html' %} {% block main %}
+<div id="book-author-details" class="container mt-3">
+    <div class="">
+        <div class="d-flex justify-content-around">
+            <img class="shadow p-3 bg-white m-4 mb-5" src="{{book.cover_image.url}}">
+            <div class="p-4">
+                <h5 class="font-weight-bold">
+                    {{book.title}}
+                </h5>
+                <p class="mt-3">
+                    {% for author in book.authors.all %}
+                    <a href="{% url 'author-detail' author.id %}">{{author}}</a>
+                    {% endfor %}
+                </p>
+                <a role="button" class="btn btn-lg btn-dark" href="https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias%3Daps&field-keywords={{ book.title|urlencode}}"
+                    target="_blank">${{book.price}} (click to buy)</a>
+                <p class="detail-book-description mt-3">Description: {{book.description}}</p>
+                <a role="button" class="btn btn-sm btn-info" href="{% url 'book-list' %}">go back</a>
+                <a role="button" class="btn btn-sm btn-info" href="{% url 'book-update' book.id %}">Update</a>
+            </div>
+        </div>
+
+
+
+    </div>
+</div>
 {% endblock main %}

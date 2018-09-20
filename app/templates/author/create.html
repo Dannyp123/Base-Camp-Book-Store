@@ -1,6 +1,10 @@
-{% extends 'base.html' %}
-{% block main %}
-<form method="post">
-    {% csrf_token %}
-</form>
+{% extends 'base.html' %} {% block main %}
+<div class="container adding-authors-container rounded">
+    <h2 class="adding-authors-header pt-4">Adding Authors</h2>
+    <form id="adding-authors" method="post">
+        {% csrf_token %} Author's Name:
+        <input type="text" name="name" placeholder="Enter name...">
+        <input class="btn btn-primary" type="submit" value="Submit">
+    </form>
+</div>
 {% endblock main %}

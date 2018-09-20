@@ -1,13 +1,15 @@
-{% extends 'base.html' %}{% load static %}
-{% block main %}
+{% extends 'base.html' %}{% load static %} {% block main %}
 
-<main>
-    <h1>Books</h1>
-    <ul>
-        {% for book in books %}
-        <li>{{ book.title }}</li>
-        {% endfor %}
-    </ul>
+<main id="book-list">
+    <div class="container">
+        <h1 class="main-header">Books</h1>
+        <ul class="book-list">
+            {% for book in books %} {% include 'book/components/book-card.html' %} {% endfor %}
+        </ul>
+
+    </div>
+
+    </div>
     {% include 'components/paginate.html' %}
 </main>
 

@@ -1,3 +1,14 @@
-<nav class="navbar navbar-expand navbar-dark bg-primary">
-    <a href="{% url 'home' %}" class="navbar-brand">Book Store</a>
+{% load static %}
+<nav id="book-store-navbar" class="navbar navbar-expand navbar-dark bg-primary shadow rounded">
+    <img src="{% static 'icons/laptop.svg' %}" class="nav-laptop-icon">
+    <a href="{% url 'home' %}" class="navbar-brand title-header">
+        Base Camp Book Store</a>
+    <a href="{% url 'book-list' %}" class="d-flex align-content-center">
+        <img src="{% static 'icons/book.svg' %}" class="nav-icon">Books</a>
+    <a href="{% url 'author-list' %}" class="d-flex align-content-center">
+        <img src="{% static 'icons/author.svg' %}" class="nav-icon">Authors</a>
+    <a href="{% url 'author-create' %}" class="d-flex align-content-center">
+        <img src="{% static 'icons/add.svg' %}" class="nav-icon">Add Author</a>
+    <a href="{% url 'book-create' %}" class="d-flex align-content-center">
+        <img src="{% static 'icons/add.svg' %}" class="nav-icon">Add book</a>
 </nav>

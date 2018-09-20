@@ -1,9 +1,19 @@
-{% extends 'base.html' %}
-{% block main %}
-<main>
-    <ul>
+{% extends 'base.html' %} {% block main %}
+<main id="author-list" class="container">
+    <h1 class="author-list-header">Authors</h1>
+    <ul class="authors-list">
         {% for author in authors %}
-        <li>{{ author.name }} : {{ author.books.last.title }}</li>
+        <li class="d-flex shadow-lg align-items-center border border-dark rounded mb-3 p-0">
+            <h5 class="col-4 border-right border-dark p-4">
+                <i class="fas fa-user"></i>
+                <a id="author-name" href="{{author.get_absolute_url}}">{{author.name}}</a>
+                <a id="update-link" class="btn btn-sm" href="{% url 'author-update' author.id %}" role="button">Update</a>
+            </h5>
+            <p class="p-4">
+                <i class="fas fa-book-open"></i>
+                <a id="last-book" href="{{author.books.last.get_absolute_url}}">{{ author.books.last.title }}</a>
+            </p>
+        </li>
         {% endfor %}
     </ul>
     {% include 'components/paginate.html' %}
